@@ -1,0 +1,36 @@
+<!-- Fernando Ito - 03/11/2018
+https://www.9lessons.info/2017/04/ionic2-angular2-camera-native-multiple.html
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Camera
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+
+  <button ion-button full (click)="takePhoto()">
+    <ion-icon name="camera"></ion-icon>&nbsp;&nbsp; Take Photo
+  </button>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card class="block">
+          <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto()"></ion-icon>
+          <img [src]="photo" *ngIf="photo" />
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-col col-6 *ngFor="let photo of photos; let id = index">
+    <ion-card class="block">
+      <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+      <img [src]="photo" *ngIf="photo">
+    </ion-card>
+  </ion-col>
+
+</ion-content>
